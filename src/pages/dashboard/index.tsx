@@ -5,6 +5,7 @@ import Report from './report'
 import User from './user'
 import Deliver from './deliver'
 import Sales from './sales'
+import Ringkasan from './ringkasan'
 
 function CustomPage() {
    const router = useRouter()
@@ -19,7 +20,7 @@ function CustomPage() {
      {isuser && (<User/>)}
      {isdeliver && (<Deliver/>)}
      {issales && (<Sales/>)}
-     {isdashboard && 'ini dasboardnya'}
+     {isdashboard && <Ringkasan/>}
     </div>
   )
 }
