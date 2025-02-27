@@ -7,9 +7,9 @@ function Framedashboard({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex flex-row " >          
         <Menu />
-        <div className="flex flex-col w-full h-screen overflow-y-auto border">
+        <div className="flex flex-col w-full h-screen border ">
           <Header />
-          <div className="flex flex-col h-screen overflow-y-auto p-4">{children}</div>
+          {children}
         </div>
        
     
