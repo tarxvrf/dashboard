@@ -10,9 +10,8 @@ const MyDatePicker: React.FC = () => {
   };
 
   return (
-    <div>
-      <h2>Date Picker</h2>
-      <DatePicker selected={startDate} onChange={handleChange as any} />
+    <div>    
+      <DatePicker className='bg-transparent px-2 max-w-[80%] border border-info rounded-xl' selected={startDate} onChange={handleChange as any} />
     </div>
   );
 };

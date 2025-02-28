@@ -1,6 +1,16 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 function User() {
+  const [alluser,seuser] = useState<[]>([])
+  useEffect(()=>{
+    const data = async()=>{
+      const response = await fetch('http://localhost:3000/api/alluser')
+      const users = await response.json()
+      seuser(users)
+    }
+    data()
+  },[])
+
   return (
     <div>
       <div className="overflow-x-auto">
@@ -148,6 +158,12 @@ function User() {
           <button className="btn btn-ghost btn-xs">details</button>
         </th>
       </tr>
+      <tr>
+        {alluser.map((item:any,index)=>
+        <td key={index}>{item.username}</td>
+        )}
+        
+      </tr>
     </tbody>
     {/* foot */}
     <tfoot>
@@ -160,6 +176,7 @@ function User() {
       </tr>
     </tfoot>
   </table>
+
 </div>
     </div>
   )
