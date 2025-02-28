@@ -18,7 +18,7 @@ function Sales() {
       }
     })
     const response = await data.json()
-    if(!response){
+    if(response){
       toast.success('User created successfully', {
         position: "top-right",
       })
@@ -39,13 +39,14 @@ function Sales() {
            <form onSubmit={notify} className="flex flex-col gap-5 h-full">      
           <label className="input input-bordered flex items-center gap-2">
           <MdOutlineSubtitles />
-          <select className="select  select-sm  w-full max-w-xs ">
+          <select className="select  select-sm  w-full max-w-xs " onChange={(e)=>setuser(e.target.value)}>
           <option disabled selected>
             pilih produk
           </option>
           <option>English</option>
           <option>Japanese</option>
           <option>Italian</option>
+          
         </select> 
           </label>
           <label className="input input-bordered flex items-center gap-2">

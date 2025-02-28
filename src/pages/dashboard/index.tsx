@@ -15,7 +15,7 @@ function CustomPage() {
    const issales = router.pathname === '/dashboard/sales'
    const isdeliver = router.pathname === '/dashboard/deliver' 
   return (
-    <div className='py-5 px-5 border h-full' >
+    <div className='py-5 px-5  h-full "' >
      {isreport && (<Report/>)}
      {isuser && (<User/>)}
      {isdeliver && (<Deliver/>)}

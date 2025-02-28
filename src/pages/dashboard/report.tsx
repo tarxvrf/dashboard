@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MyDatePicker from "../UIcomponents/DatePicker";
 import MyDateRange from "../UIcomponents/RangeDatePicker";
 
 export default function Report() {
+const [allproduk, setallproduk] = useState<[]>([]);
+const formatCurrency = (value: number) => {
+  return new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR',
+  }).format(value);
+};
+  useEffect(() => {
+    const data = async () => {
+      const response = await fetch("http://localhost:3000/api/allproduk");
+      const allproduk = await response.json();
+      setallproduk(allproduk);
+    };
+    data();
+  }, []);
+  
   return (
     <div>
       <div className="flex flex-row max-w-md gap-10 items-center">
@@ -29,34 +45,27 @@ export default function Report() {
           {/* head */}
           <thead>
             <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
+
+              <th>id</th>
+              <th>Nama</th>
+              <th>Harga</th>
+              <th>Stok</th>
+              <th>createdAt</th>
+              <th>updateAt</th>
             </tr>
           </thead>
           <tbody>
             {/* row 1 */}
-            <tr className="bg-base-200">
-              <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
-              <td>Blue</td>
-            </tr>
-            {/* row 2 */}
-            <tr>
-              <th>2</th>
-              <td>Hart Hagerty</td>
-              <td>Desktop Support Technician</td>
-              <td>Purple</td>
-            </tr>
-            {/* row 3 */}
-            <tr>
-              <th>3</th>
-              <td>Brice Swyre</td>
-              <td>Tax Accountant</td>
-              <td>Red</td>
-            </tr>
+            {allproduk.map((item:any,index)=> 
+            <tr key={index}>                      
+              <td>{item.id}</td>
+              <td>{item.nama}</td>
+              <td>{`${formatCurrency(item.harga)}`}</td>
+              <td>{item.stok}</td>
+              <td>{item.createdAt}</td>
+              <td>{item.updatedAt}</td>
+               </tr>
+              )}           
           </tbody>
         </table>
       </div>
