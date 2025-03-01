@@ -20,7 +20,7 @@ function Ringkasan() {
           70%
         </div>
       </div>
-      <div className="">
+      <div className="w-full">
         <BarChart/>
       </div>
     </div>
