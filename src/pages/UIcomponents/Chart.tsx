@@ -43,7 +43,7 @@ const options = {
 
 const BarChart: React.FC = () => {
   return (
-    <div className=''>
+    <div className='border'>
       <h2>Bar Chart Example</h2>
       <Bar data={data} options={options} />
     </div>
