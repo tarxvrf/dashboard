@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import MyDatePicker from "../UIcomponents/DatePicker";
 import MyDateRange from "../UIcomponents/RangeDatePicker";
 
-export default function Report() {
+export default function Stok() {
 const [allproduk, setallproduk] = useState<[]>([]);
 const formatCurrency = (value: number) => {
   return new Intl.NumberFormat('id-ID', {
@@ -52,6 +52,7 @@ const formatCurrency = (value: number) => {
               <th>Stok</th>
               <th>createdAt</th>
               <th>updateAt</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -64,6 +65,10 @@ const formatCurrency = (value: number) => {
               <td>{item.stok}</td>
               <td>{item.createdAt}</td>
               <td>{item.updatedAt}</td>
+              <td className="flex gap-5"><button className="btn btn-warning btn-xs">Edit</button>
+              <button className="btn btn-error btn-xs">Delete</button>
+              </td>
+              
                </tr>
               )}           
           </tbody>

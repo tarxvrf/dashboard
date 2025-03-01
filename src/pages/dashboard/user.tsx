@@ -13,7 +13,7 @@ function User() {
 
   return (
     <div>
-      <div className="overflow-x-auto overflow-y-scroll h-[600px]">
+      <div className="overflow-x-auto overflow-y-scroll h-[800px]">
         <table className="table">
           {/* head */}
           <thead>

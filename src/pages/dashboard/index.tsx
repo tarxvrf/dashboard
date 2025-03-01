@@ -6,6 +6,7 @@ import User from './user'
 import Deliver from './deliver'
 import Sales from './sales'
 import Ringkasan from './ringkasan'
+import Stok from './stokbarang'
 
 function CustomPage() {
    const router = useRouter()
@@ -14,6 +15,7 @@ function CustomPage() {
    const isuser = router.pathname === '/dashboard/user'
    const issales = router.pathname === '/dashboard/sales'
    const isdeliver = router.pathname === '/dashboard/deliver' 
+   const isstok = router.pathname === '/dashboard/stokbarang'
   return (
     <div className='py-5 px-5  h-full "' >
      {isreport && (<Report/>)}
@@ -21,6 +23,7 @@ function CustomPage() {
      {isdeliver && (<Deliver/>)}
      {issales && (<Sales/>)}
      {isdashboard && <Ringkasan/>}
+     {isstok && <Stok/>}
     </div>
   )
 }

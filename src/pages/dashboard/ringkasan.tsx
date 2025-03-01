@@ -3,7 +3,7 @@ import BarChart from "../UIcomponents/Chart";
 
 function Ringkasan() {
   return (
-    <div>
+   
     <div className="flex flex-col w-64 items-center gap-10">
       <div role="button" className="card w-64 border">
         <div className="card-body">
@@ -20,11 +20,11 @@ function Ringkasan() {
           70%
         </div>
       </div>
-      <div>
+      <div className="">
         <BarChart/>
       </div>
     </div>
-    </div>
+    
   );
 }
 

@@ -1,51 +1,68 @@
 import Link from "next/link";
 import React from "react";
-import { FaHome, FaUserAlt } from "react-icons/fa";
-import { FaCartShopping } from "react-icons/fa6";
+import { FaBox, FaHome, FaUserAlt } from "react-icons/fa";
+
 import { GrDeliver } from "react-icons/gr";
 import { HiShoppingBag } from "react-icons/hi";
+import { IoSettings } from "react-icons/io5";
 import { TbReportSearch } from "react-icons/tb";
 
 function Menu() {
   return (
-    <div className=" flex justify-center items-center w-32 bg-slate-900 min-h-screen">
-      <div>       
+    <div className=" flex flex-col justify-between items-center w-32 bg-slate-900 min-h-screen">
+      <div className="p-3 text-3xl border-b-2 ">
+        <h1>Report</h1>
+      </div>
+
+      <div>
         <ul className="flex flex-col gap-16">
-          <li className="flex flex-col ">
+          <li className="flex flex-col btn btn-ghost ">
             <Link href="/dashboard">
               <FaHome className=" text-4xl" />
               Home
             </Link>
           </li>
 
-          <li className="flex flex-col ">
+          <li className="flex flex-col btn btn-ghost ">
             <Link href="/dashboard/report">
               <TbReportSearch className=" text-4xl" />
               Report
             </Link>
           </li>
 
-          <li className="flex flex-col ">
-            <Link href="/dashboard/user">
-              <FaUserAlt className=" text-4xl" />
-              <span>User</span>
-            </Link>
-          </li>
-
-          <li className="flex flex-col ">
+          <li className="flex flex-col btn btn-ghost ">
             <Link href="/dashboard/deliver">
               <GrDeliver className=" text-4xl" />
               <span>Deliver</span>
             </Link>
           </li>
 
-          <li className="flex flex-col ">
+          <li className="flex flex-col btn btn-ghost">
             <Link href="/dashboard/sales">
               <HiShoppingBag className=" text-4xl" />
               <span>Sales</span>
             </Link>
           </li>
+          <li className="flex flex-col btn btn-ghost">
+            <Link href="/dashboard/stokbarang">
+            <FaBox className=" text-4xl p-1" />
+              <span>Stok</span>
+            </Link>
+          </li>
         </ul>
+      </div>
+
+      <div >
+        <div>
+          <div className=" mb-5 btn btn-ghost ">
+            <FaUserAlt className="text-4xl " />
+          </div>
+        </div>
+
+        <div className="mb-10 btn btn-ghost ">
+          <IoSettings className="text-4xl " />
+        </div>
+
       </div>
     </div>
   );
