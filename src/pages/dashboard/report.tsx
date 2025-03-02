@@ -40,7 +40,7 @@ const formatCurrency = (value: number) => {
       </div>
       </div>
 
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto overflow-y-scroll h-[500px]">
         <table className="table">
           {/* head */}
           <thead>

@@ -6,6 +6,7 @@ export default function Stok() {
   const [nama,setnama]=useState('')
   const [harga, setharga] = useState(0);
   const [stok, setstok] = useState(0);
+  const [id,setid]=useState(0)
 
   const formatCurrency = (value: number) => {
     return new Intl.NumberFormat('id-ID', {
@@ -55,6 +56,19 @@ export default function Stok() {
 
 
 
+  async function handlehapus(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+    const response = await fetch(`http://localhost:3000/api/deleteproduk/${parseInt(event as any)}`,{
+      method: 'DELETE',
+
+    });
+    if (response.ok) {      
+      // Menghapus item dari state setelah berhasil dihapus dari database
+      const response = await fetch("http://localhost:3000/api/allproduk");
+      const allitem = await response.json();
+      setallproduk(allitem);
+    }
+  }
+
   return (
     <div>
       <div className="flex flex-row max-w-lg gap-10 items-center">
@@ -87,8 +101,8 @@ export default function Stok() {
         <ToastContainer/>
       </div>
 
-      <div className="overflow-x-auto">
-        <table className="table">
+      <div className="overflow-x-auto overflow-y-auto h-[500px] ">
+        <table className="table ">
           {/* head */}
           <thead>
             <tr>
@@ -112,7 +126,7 @@ export default function Stok() {
                 <td>{item.createdAt}</td>
                 <td>{item.updatedAt}</td>
                 <td className="flex gap-5"><button className="btn btn-warning btn-xs">Edit</button>
-                  <button className="btn btn-error btn-xs">Delete</button>
+                  <button onClick={(e)=>handlehapus(item.id)} className="btn btn-error btn-xs">Delete</button>
                 </td>
 
               </tr>
