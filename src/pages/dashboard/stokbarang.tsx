@@ -78,14 +78,11 @@ export default function Stok() {
       <div className="w-64">
         <form onSubmit={handlesave} className="flex flex-col gap-5">
           <div className="">
-            <select className="select  select-sm select-info w-full max-w-sm ">
-              <option disabled selected>
-                pilih produk
-              </option>
-              <option>English</option>
-              <option>Japanese</option>
-              <option>Italian</option>
-            </select>
+          <select  className="select  select-sm select-info w-full max-w-sm ">
+        {allproduk.map((item:any,index)=>
+         <option key={index} value={item.id}>{item.nama}</option>
+        )}
+        </select>
           </div>
 
           <div className="flex flex-col gap-1"><label htmlFor="">Nama produk</label>

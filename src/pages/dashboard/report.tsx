@@ -23,13 +23,11 @@ const formatCurrency = (value: number) => {
     <div>
       <div className="flex flex-row max-w-lg gap-10 items-center">
       <div className="">
-        <select className="select  select-sm select-info w-full max-w-sm ">
-          <option disabled selected>
-            pilih produk
-          </option>
-          <option>English</option>
-          <option>Japanese</option>
-          <option>Italian</option>
+        
+        <select  className="select  select-sm select-info w-full max-w-sm ">
+        {allproduk.map((item:any,index)=>
+         <option key={index} value={item.id}>{item.nama}</option>
+        )}
         </select>
       </div>
       <div>
