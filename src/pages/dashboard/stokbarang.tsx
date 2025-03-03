@@ -130,12 +130,17 @@ export default function Stok() {
         stok:Number(modstok)
       })
     })
-
-    if(!response.ok){
-      alert('gagalbos')
+    const data = await response.json()
+    if(data){
+      toast.success("Data berhasil diubah",{
+        position: "top-right",
+      })
     }else{
-      
+      toast.error("Data gagal diubah",{
+        position: "top-right",
+        })
     }
+   
    
   }
   return (
