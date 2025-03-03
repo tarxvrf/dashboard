@@ -64,7 +64,7 @@ export default function Stok() {
   function handlehapus(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
-        confirmButton: "btn btn-success",
+        confirmButton: "btn btn-success mx-2",
         cancelButton: "btn btn-danger",
       },
       buttonsStyling: false
@@ -172,7 +172,7 @@ export default function Stok() {
         <ToastContainer />
       </div>
 
-      <div className="overflow-x-auto  overflow-y-auto h-[500px] ">
+      <div className="overflow-x-auto overflow-y-auto h-[500px] ">
         <table className="table ">
           {/* head */}
           <thead>
