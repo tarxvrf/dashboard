@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import MyDatePicker from "../UIcomponents/DatePicker";
 import MyDateRange from "../UIcomponents/RangeDatePicker";
+import Swal from "sweetalert2";
 
 export default function Report() {
 const [allproduk, setallproduk] = useState<[]>([]);
@@ -19,6 +20,11 @@ const formatCurrency = (value: number) => {
     data();
   }, []);
   
+  function handleclick(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
+   event.preventDefault();
+ 
+  }
+
   return (
     <div>
       <div className="flex flex-row max-w-lg gap-10 items-center">
@@ -34,7 +40,7 @@ const formatCurrency = (value: number) => {
         <MyDatePicker />
       </div>
       <div>
-        <button className="btn btn-info btn-xs">Search</button>
+        <button onClick={handleclick} className="btn btn-info btn-xs">Search</button>
       </div>
       </div>
 
