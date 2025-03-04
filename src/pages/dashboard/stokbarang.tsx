@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import Swal from "sweetalert2";
+import Image from "next/image";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 interface Product {
@@ -55,7 +56,9 @@ export default function Stok() {
   const [modnama, setmodnama] = useState('');
   const [modharga, setmodharga] = useState(0);
   const [modstok, setmodstok] = useState(0);
-  const [tmp,settmp]=useState('')
+  const [id,setid]=useState(0)
+  const [gbr,setgbr]= useState('')
+  const [tek,settek]= useState('')
   const queryclient = useQueryClient();
 
   const updatedata = async (id: number) => {
@@ -176,9 +179,12 @@ export default function Stok() {
   async function sethandleedit(id: any) {
    
     if (modref.current) {
-      modref.current.showModal();
-      const item = data.filter((item: any) => item.id === id);
-      setallproduk(item);      
+      modref.current.showModal();     
+      const item = data.find((item: any) => item.id === id);    
+      setmodnama(item.nama) 
+      setmodharga(item.harga)   
+      setmodstok(item.stok)
+      setid(item.id)
     }
     
   }
@@ -190,13 +196,47 @@ export default function Stok() {
     }    
   }
 
+  function handleimage(event: React.ChangeEvent<HTMLInputElement>) {
+    event.preventDefault()
+    const file = event.target.files?.[0]
+    if(file?.type === 'image/png' || file?.type === 'image/jpg' || file?.type === 'image/jpeg'){
+      const reader = new FileReader()
+      reader.onloadend = () => {
+        setgbr(reader.result as string)
+        }
+        reader.readAsDataURL(file)
+    }else{
+      alert('file type not supported must be png file')
+    }
+
+  }
+
+  const uploadimage= async(e: React.FormEvent)=>{
+    e.preventDefault()
+    const formData = new FormData(e.target as HTMLFormElement)   
+    const ff = formData.get('file')    
+    if(ff){
+      const {type}= ff as File
+      if(type === 'image/jpeg' || type === 'image/png' || type === 'video/mov' || type === 'video/mp4'){
+        await fetch('/api/upload', {
+          method: 'POST',
+          body: ff ,
+
+        })
+      }else{
+        alert('file type not supported')
+      }
+    }
+
+  }
+
   return (
     <div>
       <div className="flex flex-row max-w-lg gap-10 items-center">
         <div></div>
       </div>
       <div className="w-64">
-        <form onSubmit={handlesave} className="flex flex-col gap-5">
+        <form onSubmit={uploadimage} encType=" multipart/form-data" className="flex flex-col gap-5">
           <div className="">
             <select className="select  select-sm select-info w-full max-w-sm ">
               {data &&
@@ -240,6 +280,14 @@ export default function Stok() {
               onChange={(e) => setstok(Number(e.target.value))}
             />
           </div>
+          <div>
+            <Image src={gbr} alt="image" height={100} width={100} />
+            <input type="file" name="file" accept="image/*" onChange={handleimage}></input>
+            <button  onClick={uploadimage} className="btn btn-info btn-xs">
+            Save Image
+          </button>
+          </div>
+          
           <button type="submit" className="btn btn-info btn-xs">
             Save
           </button>
@@ -301,14 +349,14 @@ export default function Stok() {
               Press ESC key or click the button below to close
             </p>
 
-            {allproduk &&
-              allproduk.map((item: any, index: number) => (
-                <div key={index}>
+           
+              
+                <div >
                   <div className="flex flex-col gap-1">
                     <label htmlFor="">Nama produk</label>
                     <input
                       type="text"
-                                        
+                      value={modnama}                  
                       onChange={(e) => setmodnama((e.target.value))}
                     />
                   </div>
@@ -317,7 +365,7 @@ export default function Stok() {
                     <label htmlFor="">Harga</label>
                     <input
                       type="text"
-                     
+                      value={modharga}
                       onChange={(e) => setmodharga(Number(e.target.value))}
                     />
                   </div>
@@ -327,7 +375,7 @@ export default function Stok() {
                     <label htmlFor="">Stok</label>
                     <input
                       type="number"
-                    
+                      value={modstok}
                       min={0}
                       className="w-20"
                       onChange={(e) => setmodstok(Number(e.target.value))}
@@ -336,14 +384,14 @@ export default function Stok() {
                   <div className="modal-action">
                     <form method="dialog">
                       {/* if there is a button in form, it will close the modal */}
-                      <button className="btn" onClick={(e) => modsave(item.id)}>
+                      <button className="btn" onClick={(e) => modsave(id)}>
                         Save
                       </button>                     
                       <button className="btn">Close</button>
                     </form>
                   </div>
                 </div>
-              ))}
+           
           </div>
         </dialog>
       </div>
