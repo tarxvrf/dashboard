@@ -5,10 +5,11 @@ import React from "react";
 
 function Framedashboard({ children }: { children: React.ReactNode }) {
   return (
-    <div>
-      <Menu />
-      <div className="flex flex-col w-full">
-        <Header />
+    <div className="bg-slate-900">
+      <Menu /> 
+      <Header />
+      <div className="flex min-h-screen flex-col w-full bg-slate-900 ">
+       
         {children}
       </div>
     </div>
