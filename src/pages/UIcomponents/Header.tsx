@@ -2,7 +2,7 @@ import React from "react";
 
 function Header() {
   return (
-    <div className="fixed  ml-32 w-[calc(100%-128px)] flex items-center justify-between border bg-slate-400 ">
+    <div className="fixed  ml-32 w-[calc(100%-128px)] h-16 flex items-center justify-between border bg-slate-400 ">
       <div className="px-5">
         <input
           className="input input-bordered input-sm"

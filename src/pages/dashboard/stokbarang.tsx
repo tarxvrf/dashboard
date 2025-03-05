@@ -251,16 +251,18 @@ export default function Stok() {
           <div className="flex flex-col gap-1">
             <label htmlFor="">Nama produk</label>
             <input
+            className="bg-transparent border border-info rounded-xl px-2"
               type="text"
-              placeholder="nama"
+              placeholder="Input nama buah"
               value={nama}
               onChange={(e) => setnama(e.target.value)}
             />
           </div>
 
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-1 w-40">
             <label htmlFor="">Harga</label>
             <input
+            className="bg-transparent border border-info rounded-xl px-2"
               type="text"
               placeholder="Rp 0"
               value={harga}
@@ -268,51 +270,22 @@ export default function Stok() {
             />
           </div>
 
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-1 w-20">
             {" "}
             <label htmlFor="">Stok</label>
             <input
+              
               type="number"
               placeholder="0"
               min={0}
               value={stok}
-              className="w-20"
+              className="bg-transparent border border-info rounded-xl px-2"
               onChange={(e) => setstok(Number(e.target.value))}
             />
           </div>
+         
           <div>
-            <Image src={gbr} alt="image" height={100} width={100} />
-            <input type="file" name="file" accept="image/*" onChange={handleimage}></input>
-            <button  onClick={uploadimage} className="btn btn-info btn-xs">
-            Save Image
-          </button>
-          </div>
-          <div>
-            <Image src={gbr} alt="image" height={100} width={100} />
-            <input type="file" name="file" accept="image/*" onChange={handleimage}></input>
-            <button  onClick={uploadimage} className="btn btn-info btn-xs">
-            Save Image
-          </button>
-          </div>
-          
-          <div>
-            <Image src={gbr} alt="image" height={100} width={100} />
-            <input type="file" name="file" accept="image/*" onChange={handleimage}></input>
-            <button  onClick={uploadimage} className="btn btn-info btn-xs">
-            Save Image
-          </button>
-          </div>
-          
-          <div>
-            <Image src={gbr} alt="image" height={100} width={100} />
-            <input type="file" name="file" accept="image/*" onChange={handleimage}></input>
-            <button  onClick={uploadimage} className="btn btn-info btn-xs">
-            Save Image
-          </button>
-          </div>
-          
-          <div>
-            <Image src={gbr} alt="image" height={100} width={100} />
+            <Image src={gbr}  alt="image" height={100} width={100} />
             <input type="file" name="file" accept="image/*" onChange={handleimage}></input>
             <button  onClick={uploadimage} className="btn btn-info btn-xs">
             Save Image

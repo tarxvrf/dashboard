@@ -19,7 +19,7 @@ function CustomPage() {
    const isdeliver = router.pathname  === '/dashboard/deliver' 
    const isstok = router.pathname  === '/dashboard/stokbarang'
   return (
-    <div className='ml-32 mt-32 px-5' >
+    <div className='ml-32 mt-20  px-5' >
      {isreport && (<Report/>)}
      {isuser && (<User/>)}
      {isdeliver && (<Deliver/>)}

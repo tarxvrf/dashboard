@@ -4,7 +4,7 @@ import BarChart from "../UIcomponents/Chart";
 function Ringkasan() {
   return (
    
-    <div className="flex flex-col w-64 items-center gap-10">
+    <div className="flex flex-col w-64 items-center gap-10 ">
       <div role="button" className="card w-64 border">
         <div className="card-body">
           <h5 className="card-title">Penjualan</h5>
