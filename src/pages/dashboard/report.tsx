@@ -13,7 +13,7 @@ const formatCurrency = (value: number) => {
 };
   useEffect(() => {
     const data = async () => {
-      const response = await fetch("http://localhost:3000/api/allproduk");
+      const response = await fetch("https://api-test.tulus-dev.my.id/api/allproduk");
       const allproduk = await response.json();
       setallproduk(allproduk);
     };

@@ -11,11 +11,11 @@ interface Product {
 }
 
 const fetchdata = async () => {
-  const response = await fetch(`http://localhost:3000/api/allproduk`);
+  const response = await fetch(`https://api-test.tulus-dev.my.id/api/allproduk`);
   return response.json();
 };
 const postdata = async (newdata: Product) => {
-  const response = await fetch(`http://localhost:3000/api/postproduk`, {
+  const response = await fetch(`https://api-test.tulus-dev.my.id/api/postproduk`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -27,7 +27,7 @@ const postdata = async (newdata: Product) => {
 
 const deletedata = async (id: number) => {
   const response = await fetch(
-    `http://localhost:3000/api/deleteproduk/${parseInt(id as any)}`,
+    `https://api-test.tulus-dev.my.id/api/deleteproduk/${parseInt(id as any)}`,
     {
       method: "DELETE",
     }
@@ -36,7 +36,7 @@ const deletedata = async (id: number) => {
 
 const updatedata = async (id: number, newdata: Product) => {
   const response = await fetch(
-    `http://localhost:3000/api/updateproduk/${parseInt(id as any)}`,
+    `https://api-test.tulus-dev.my.id/api/updateproduk/${parseInt(id as any)}`,
     {
       method: "PATCH",
       headers: {
@@ -63,7 +63,7 @@ export default function Stok() {
 
   const updatedata = async (id: number) => {
     const response = await fetch(
-      `http://localhost:3000/api/updateproduk/${parseInt(id as any)}`,
+      `https://api-test.tulus-dev.my.id/api/updateproduk/${parseInt(id as any)}`,
       {
         method: "PATCH",
         headers: {
@@ -236,7 +236,7 @@ export default function Stok() {
         <div></div>
       </div>
       <div className="w-64">
-        <form onSubmit={uploadimage} encType=" multipart/form-data" className="flex flex-col gap-5">
+        <form onSubmit={handlesave} encType=" multipart/form-data" className="flex flex-col gap-5">
           <div className="">
             <select className="select  select-sm select-info w-full max-w-sm ">
               {data &&
@@ -287,6 +287,38 @@ export default function Stok() {
             Save Image
           </button>
           </div>
+          <div>
+            <Image src={gbr} alt="image" height={100} width={100} />
+            <input type="file" name="file" accept="image/*" onChange={handleimage}></input>
+            <button  onClick={uploadimage} className="btn btn-info btn-xs">
+            Save Image
+          </button>
+          </div>
+          
+          <div>
+            <Image src={gbr} alt="image" height={100} width={100} />
+            <input type="file" name="file" accept="image/*" onChange={handleimage}></input>
+            <button  onClick={uploadimage} className="btn btn-info btn-xs">
+            Save Image
+          </button>
+          </div>
+          
+          <div>
+            <Image src={gbr} alt="image" height={100} width={100} />
+            <input type="file" name="file" accept="image/*" onChange={handleimage}></input>
+            <button  onClick={uploadimage} className="btn btn-info btn-xs">
+            Save Image
+          </button>
+          </div>
+          
+          <div>
+            <Image src={gbr} alt="image" height={100} width={100} />
+            <input type="file" name="file" accept="image/*" onChange={handleimage}></input>
+            <button  onClick={uploadimage} className="btn btn-info btn-xs">
+            Save Image
+          </button>
+          </div>
+          
           
           <button type="submit" className="btn btn-info btn-xs">
             Save

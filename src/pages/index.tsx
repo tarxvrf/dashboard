@@ -8,7 +8,7 @@ function Page() {
     const [alluser,seuser] = useState<[]>([])
     useEffect(()=>{
       const data = async()=>{
-        const response = await fetch('http://localhost:3000/api/alluser')
+        const response = await fetch('https://api-test.tulus-dev.my.id/api/alluser')
         const users = await response.json()
         seuser(users)
       }

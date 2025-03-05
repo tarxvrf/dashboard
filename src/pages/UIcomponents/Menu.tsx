@@ -9,7 +9,7 @@ import { TbReportSearch } from "react-icons/tb";
 
 function Menu() {
   return (
-    <div className=" flex flex-col justify-between items-center w-32 bg-slate-900 min-h-screen">
+    <div className="fixed flex flex-col justify-between h-full items-center w-32 bg-slate-900 ">
       <div className="p-3 text-3xl border-b-2 ">
         <h1>Report</h1>
       </div>
